@@ -1,0 +1,41 @@
+version: '2'
+services:
+  data:
+    build: ./
+  postgresql:
+    depends_on:
+      - data
+    image: svenv/postgresql
+    ports:
+      - 5432:5432
+    restart: always
+    volumes_from:
+      - data
+  uwsgi:
+    depends_on:
+      - data
+      - postgresql
+    image: svenv/uwsgi
+    ports:
+      - 8000:8000
+    restart: always
+    volumes_from:
+      - data
+  nginx:
+    depends_on:
+      - data
+      - postgresql
+      - uwsgi
+    image: svenv/nginx
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes_from:
+      - data
+  tarsnap:
+    depends_on:
+      - data
+    image: svenv/tarsnap
+    volumes_from:
+      - data
