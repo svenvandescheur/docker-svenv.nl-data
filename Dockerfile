@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
 
     git clone https://github.com/svenvandescheur/svenv.nl.git /srv/nginx && \
     cd /srv/nginx && \
+    npm install --production && \
     pip install -r requirements.txt && \
 
     cd /srv/nginx/svenv/ && \
