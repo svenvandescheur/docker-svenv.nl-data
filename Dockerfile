@@ -3,6 +3,7 @@ MAINTAINER Sven van de Scheur <svenvandescheur@gmail.com>
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
+    libjpeg-dev \
     libpq-dev && \
 
     git clone https://github.com/svenvandescheur/svenv.nl.git /srv/nginx && \
