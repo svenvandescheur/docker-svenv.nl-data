@@ -24,4 +24,4 @@ RUN tarsnap -x -f $(tarsnap --list-archives | egrep [0-9]{14}-[^-]+?-svenv.nl/me
 RUN chown app:app -R /srv/
 
 # Set volumes
-VOLUME ["/etc/nginx/conf.d", "/etc/ssl/",  "/srv/", "/tmp/", "/usr/local/lib/python2.7/dist-packages", "/usr/lib/python2.7/dist-packages", "/usr/local/etc/", "/var/lib/postgresql/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
+VOLUME ["/etc/nginx/conf.d", "/etc/ssl/", "/root/", "/srv/", "/tmp/", "/usr/local/lib/python2.7/dist-packages", "/usr/lib/python2.7/dist-packages", "/usr/local/etc/", "/var/lib/postgresql/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
