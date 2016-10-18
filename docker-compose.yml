@@ -33,6 +33,13 @@ services:
     restart: always
     volumes_from:
       - data
+  rsync:
+    depends_on:
+      - data
+    image: svenv/rsync
+    restart: always
+    volumes_from:
+      - data
   tarsnap:
     depends_on:
       - data
