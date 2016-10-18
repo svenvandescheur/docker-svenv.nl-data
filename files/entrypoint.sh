@@ -8,7 +8,6 @@
 # * Set up script
 # * Start services
 # * Download latest backups
-# * Fix permissions
 # * Execute command
 
 # Set up script
@@ -24,10 +23,6 @@ service postfix start
 
 # Download latest backups
 rsync -a svenv.nl@recovery.svenv.nl:~/recovery/ /
-
-
-# Fix permissions
-chown app:app -R /srv/
 
 
 # Execute command
