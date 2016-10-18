@@ -1,0 +1,6 @@
+Host *
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials no
+    HashKnownHosts yes
+    SendEnv LANG LC_*
+    StrictHostKeyChecking no
