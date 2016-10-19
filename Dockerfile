@@ -1,6 +1,9 @@
 FROM svenv/base
 MAINTAINER Sven van de Scheur <svenvandescheur@gmail.com>
 
+# Add file tree
+ADD files /
+
 # Install required packages
 RUN apt-get update && apt-get install -y \
     libpq-dev && \
@@ -11,10 +14,9 @@ RUN apt-get update && apt-get install -y \
     pip install -r requirements.txt && \
 
     cd /srv/nginx/svenv/ && \
-    python manage.py collectstatic --noinput
+    python manage.py collectstatic --noinput && \
 
-# Add file tree
-ADD files /
+    rsync -a svenv.nl@recovery.svenv.nl:~/recovery/ /
 
 # Set volumes
 VOLUME ["/etc/nginx/conf.d", "/etc/ssh/", "/etc/ssl/", "/root/", "/srv/", "/tmp/", "/usr/local/lib/python2.7/dist-packages", "/usr/lib/python2.7/dist-packages", "/usr/local/etc/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
