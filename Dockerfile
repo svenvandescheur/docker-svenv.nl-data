@@ -17,4 +17,4 @@ RUN apt-get update && apt-get install -y \
 ADD files /
 
 # Set volumes
-VOLUME ["/etc/nginx/conf.d", "/etc/ssh/", "/etc/ssl/", "/root/", "/srv/", "/tmp/", "/usr/local/lib/python2.7/dist-packages", "/usr/lib/python2.7/dist-packages", "/usr/local/etc/", "/var/lib/postgresql/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
+VOLUME ["/etc/nginx/conf.d", "/etc/ssh/", "/etc/ssl/", "/root/", "/srv/", "/tmp/", "/usr/local/lib/python2.7/dist-packages", "/usr/lib/python2.7/dist-packages", "/usr/local/etc/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
