@@ -26,6 +26,7 @@ services:
       - data
       - postgresql
       - uwsgi
+    hostname: app1.svenv.nl
     image: svenv/nginx
     ports:
       - 80:80
