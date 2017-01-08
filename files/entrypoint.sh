@@ -8,6 +8,7 @@
 # * Set up script
 # * Start services
 # * Download latest backups
+# * Link certificates
 # * Execute command
 
 # Set up script
@@ -23,6 +24,10 @@ service postfix start
 
 # Download latest backups
 rsync -a svenv.nl@recovery.svenv.nl:~/recovery/ /
+
+
+# Link certificates
+/usr/local/bin/createcertlinks.sh
 
 
 # Execute command
