@@ -12,5 +12,5 @@ hostname=`hostname`
 dir=`ls -t /etc/letsencrypt/live/ | grep $hostname | head -n 1`
 path="/etc/letsencrypt/live/$dir"
 
-ln -l "$path/privkey.pem" "/etc/ssl/certs/svenv.nl.key"
-ln -l "$path/fullchain.pem" "/etc/ssl/certs/svenv.nl.crt"
+ln -s "$path/privkey.pem" "/etc/ssl/certs/svenv.nl.key"
+ln -s "$path/fullchain.pem" "/etc/ssl/certs/svenv.nl.crt"
