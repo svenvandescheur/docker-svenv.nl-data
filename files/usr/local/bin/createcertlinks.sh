@@ -8,8 +8,7 @@
 
 
 # Link certificates
-hostname=`hostname`
-dir=`ls -t /etc/letsencrypt/live/ | grep $hostname | head -n 1`
+dir=`ls -t /etc/letsencrypt/live/ | head -n 1`
 path="/etc/letsencrypt/live/$dir"
 
 ln -s "$path/privkey.pem" "/etc/ssl/certs/svenv.nl.key"
