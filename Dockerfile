@@ -8,7 +8,7 @@ ADD files /
 RUN apt-get update && apt-get install -y \
     libpq-dev && \
 
-    git clone https://github.com/svenvandescheur/svenv.nl.git /srv/nginx && \
+    git clone https://github.com/svenvandescheur/svenv.nl-2017.git /srv/nginx && \
     cd /srv/nginx && \
     npm install --production && \
     pip install -r requirements.txt && \
@@ -16,7 +16,8 @@ RUN apt-get update && apt-get install -y \
     cd /srv/nginx/svenv/ && \
     python manage.py collectstatic --noinput && \
 
-    rsync -a svenv.nl@recovery.svenv.nl:~/recovery/ /
+    rsync -a svenv.nl@recovery.svenv.nl:~/recovery/ / && \
+    chown -R app:app /srv/nginx/
 
 # Set volumes
 VOLUME ["/etc/letsencrypt/", "/etc/nginx/conf.d", "/etc/ssh/", "/etc/ssl/", "/root/", "/srv/", "/tmp/", "/usr/local/lib/python2.7/dist-packages", "/usr/lib/python2.7/dist-packages", "/usr/local/etc/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
