@@ -24,6 +24,7 @@ service postfix start
 
 # Download latest backups
 rsync -a svenv.nl@recovery.svenv.nl:~/recovery/ /
+chown -R app:app /srv/nginx/
 
 
 # Link certificates
