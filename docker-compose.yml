@@ -3,6 +3,13 @@ services:
   data:
     build: ./
     hostname: app1.svenv.nl
+  letsencrypt:
+    depends_on:
+      - data
+    image: svenv/letsencrypt
+    restart: always
+    volumes_from:
+      - data
   postgresql:
     depends_on:
       - data
