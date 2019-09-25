@@ -6,15 +6,17 @@ ADD files /
 
 # Install required packages
 RUN apt-get update && apt-get install -y \
-    libpq-dev && \
+    libpq-dev \
+    python3 \
+    python3-pip && \
 
     git clone https://github.com/svenvandescheur/svenv.nl-2017.git /srv/nginx && \
     cd /srv/nginx && \
     npm install --production && \
-    pip install -r requirements.txt && \
+    pip3 install -r requirements.txt && \
 
     cd /srv/nginx/svenv/ && \
-    python manage.py collectstatic --noinput && \
+    python3 manage.py collectstatic --noinput && \
 
     rsync -a svenv.nl@recovery.svenv.nl:~/recovery/ / && \
     chown -R app:app /srv/nginx/
