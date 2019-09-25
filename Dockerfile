@@ -22,4 +22,4 @@ RUN apt-get update && apt-get install -y \
     chown -R app:app /srv/nginx/
 
 # Set volumes
-VOLUME ["/etc/letsencrypt/", "/etc/nginx/conf.d", "/etc/ssh/", "/etc/ssl/", "/root/", "/srv/", "/tmp/", "/usr/local/lib/python3.6/dist-packages/", "/usr/lib/python3.6/dist-packages", "/usr/local/etc/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
+VOLUME ["/etc/letsencrypt/", "/etc/nginx/conf.d", "/etc/ssh/", "/etc/ssl/", "/root/", "/srv/", "/tmp/", "/usr/local/lib/", "/usr/local/etc/", "/var/run/postgresql/", "/var/log/", "/var/mail"]
